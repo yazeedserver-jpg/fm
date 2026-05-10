@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فاميلي سويت | Family Sweet — French Pastry Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A8;
+    --gold-dark: #A07D45;
+    --cream: #FAF6EE;
+    --beige: #F0E6D0;
+    --beige-dark: #E0CCAA;
+    --marble: #FDFBF8;
+    --brown-soft: #8B6E4E;
+    --text-dark: #2C1F0E;
+    --text-mid: #5A4535;
+    --text-light: #9B866C;
+    --white: #FFFFFF;
+    --serif-en: 'Cormorant Garamond', Georgia, serif;
+    --sans-en: 'Montserrat', sans-serif;
+    --serif-ar: 'Noto Naskh Arabic', serif;
+    --transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    background: var(--marble);
+    color: var(--text-dark);
+    font-family: var(--serif-ar);
+    overflow-x: hidden;
+    direction: rtl;
+  }
+
+  /* Fade-in animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+  .reveal-delay-4 { transition-delay: 0.6s; }
+
+  /* ═══════════════════════════════════════
+     NAV
+  ═══════════════════════════════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3.5rem;
+    background: rgba(253,251,248,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    padding: 0.8rem 3.5rem;
+    background: rgba(253,251,248,0.97);
+    box-shadow: 0 4px 30px rgba(139,110,78,0.08);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-emblem {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif-en);
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column; align-items: flex-end;
+  }
+  .nav-logo-en {
+    font-family: var(--serif-en);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+    line-height: 1.1;
+  }
+  .nav-logo-ar {
+    font-family: var(--serif-ar);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-family: var(--sans-en);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-dark); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-dark) !important;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 30px;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition) !important;
+  }
+  .nav-btn:hover {
+    background: var(--gold) !important;
+    color: var(--white) !important;
+  }
+  .nav-btn::after { display: none !important; }
+
+  /* ═══════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════ */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 0%, rgba(201,169,110,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 80% 100%, rgba(224,204,170,0.15) 0%, transparent 50%),
+      linear-gradient(165deg, #FAF6EE 0%, #F5EDD7 45%, #EDE0C6 100%);
+  }
+  .hero-arabesque {
+    position: absolute;
+    top: 0; right: 0;
+    width: 42%;
+    height: 100%;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 C 120 30, 180 40, 160 80 C 180 120, 120 130, 100 160 C 80 130, 20 120, 40 80 C 20 40, 80 30, 100 10Z' fill='none' stroke='%23C9A96E' stroke-width='1'/%3E%3Cpath d='M100 30 C 115 45, 165 53, 148 80 C 165 107, 115 115, 100 135 C 85 115, 35 107, 52 80 C 35 53, 85 45, 100 30Z' fill='none' stroke='%23C9A96E' stroke-width='0.8'/%3E%3Ccircle cx='100' cy='80' r='15' fill='none' stroke='%23C9A96E' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='80' r='5' fill='%23C9A96E' opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    background-repeat: repeat;
+  }
+  .hero-arabesque-left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 42%;
+    height: 100%;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 C 120 30, 180 40, 160 80 C 180 120, 120 130, 100 160 C 80 130, 20 120, 40 80 C 20 40, 80 30, 100 10Z' fill='none' stroke='%23C9A96E' stroke-width='1'/%3E%3Cpath d='M100 30 C 115 45, 165 53, 148 80 C 165 107, 115 115, 100 135 C 85 115, 35 107, 52 80 C 35 53, 85 45, 100 30Z' fill='none' stroke='%23C9A96E' stroke-width='0.8'/%3E%3Ccircle cx='100' cy='80' r='15' fill='none' stroke='%23C9A96E' stroke-width='0.6'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+    background-repeat: repeat;
+  }
+  /* Floating pastry decorations */
+  .hero-decor {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.18) 0%, transparent 70%);
+  }
+  .hero-decor-1 { width: 500px; height: 500px; top: -100px; right: -100px; }
+  .hero-decor-2 { width: 300px; height: 300px; bottom: 50px; left: 80px; background: radial-gradient(circle, rgba(224,204,170,0.2) 0%, transparent 70%); }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 780px;
+    padding: 0 2rem;
+    padding-top: 80px;
+  }
+  .hero-tagline {
+    font-family: var(--sans-en);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-tagline::before, .hero-tagline::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold-light);
+  }
+  .hero-title-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+  }
+  .hero-title-en {
+    font-family: var(--serif-en);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 1.5rem 0;
+  }
+  .hero-divider span {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light));
+  }
+  .hero-divider span:last-child {
+    background: linear-gradient(90deg, var(--gold-light), transparent);
+  }
+  .hero-divider-icon {
+    color: var(--gold);
+    font-size: 18px;
+  }
+  .hero-sub-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-bottom: 0.3rem;
+    line-height: 1.8;
+  }
+  .hero-sub-en {
+    font-family: var(--serif-en);
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 2.8rem;
+    letter-spacing: 0.5px;
+  }
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    padding: 0.9rem 2.4rem;
+    border-radius: 35px;
+    font-family: var(--sans-en);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 8px 28px rgba(160,125,69,0.30);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 38px rgba(160,125,69,0.40);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text-mid);
+    padding: 0.9rem 2.4rem;
+    border-radius: 35px;
+    font-family: var(--sans-en);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--beige-dark);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-dark);
+    background: rgba(201,169,110,0.06);
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.6;
+    animation: heroFloat 2.8s ease-in-out infinite;
+  }
+  .hero-scroll span {
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .hero-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold-light), transparent);
+  }
+  @keyframes heroFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION COMMON
+  ═══════════════════════════════════════ */
+  section {
+    padding: 7rem 0;
+    position: relative;
+  }
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+  .section-label {
+    font-family: var(--sans-en);
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .section-title-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .section-title-en {
+    font-family: var(--serif-en);
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .section-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto 3.5rem;
+  }
+  .section-rule-line {
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: var(--gold-light);
+  }
+  .section-rule-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     SIGNATURE PRODUCTS
+  ═══════════════════════════════════════ */
+  #products {
+    background: var(--cream);
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .product-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--marble);
+    cursor: pointer;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(139,110,78,0.14);
+  }
+  .product-img-wrap {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+  }
+  .product-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .product-card:hover .product-svg { transform: scale(1.06); }
+  /* Illustrated pastry placeholders */
+  .pastry-bg-mille {
+    background: linear-gradient(145deg, #F5E6CC 0%, #EDD5A8 50%, #E0C48A 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pastry-bg-eclair {
+    background: linear-gradient(145deg, #F0E0C0 0%, #D4A574 50%, #B8895A 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pastry-bg-savory {
+    background: linear-gradient(145deg, #EDE3D3 0%, #D9C8A8 50%, #C4A87C 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(44,31,14,0.55) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .product-card:hover .product-overlay { opacity: 1; }
+  .product-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(253,251,248,0.92);
+    border: 1px solid rgba(201,169,110,0.35);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+  }
+  .product-info {
+    padding: 1.5rem 1.6rem 1.8rem;
+  }
+  .product-name-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+  .product-name-en {
+    font-family: var(--serif-en);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  .product-desc {
+    font-family: var(--serif-ar);
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+  .product-rule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+  .product-rule-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+  .product-rule-line { flex: 1; height: 1px; background: var(--beige-dark); }
+
+  /* Illustrated pastry SVGs */
+  .mille-feuille-art {
+    position: relative;
+    width: 180px;
+    height: 120px;
+  }
+  .eclair-art {
+    position: relative;
+    width: 200px;
+    height: 80px;
+  }
+  .macaron-art {
+    position: relative;
+    display: flex;
+    gap: 8px;
+  }
+
+  /* ═══════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════ */
+  #about {
+    background: var(--marble);
+    overflow: hidden;
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-frame-main {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #F0E0C0 0%, #D4B27A 50%, #C9A96E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .about-frame-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    width: 55%;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #FAF6EE, #F0E4CA);
+    border: 2px solid var(--beige-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .about-quote-badge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 80px;
+    height: 80px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    box-shadow: 0 8px 24px rgba(160,125,69,0.35);
+  }
+  .about-quote-badge span {
+    font-family: var(--serif-en);
+    font-size: 42px;
+    color: var(--white);
+    line-height: 1;
+    font-style: italic;
+    margin-top: -8px;
+  }
+  .about-text { padding-right: 1rem; }
+  .about-story-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.08rem;
+    line-height: 2.1;
+    color: var(--text-mid);
+    margin-bottom: 1.4rem;
+  }
+  .about-story-en {
+    font-family: var(--serif-en);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.95;
+    color: var(--text-light);
+    margin-bottom: 2.2rem;
+    border-right: 2px solid var(--gold-light);
+    padding-right: 1.2rem;
+  }
+  .about-stats {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid var(--beige-dark);
+    padding-top: 2rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--serif-en);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--gold-dark);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label-ar {
+    font-family: var(--serif-ar);
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ═══════════════════════════════════════
+     EXPERIENCE
+  ═══════════════════════════════════════ */
+  #experience {
+    background: linear-gradient(175deg, var(--beige) 0%, var(--cream) 100%);
+  }
+  .experience-quote {
+    max-width: 700px;
+    margin: 0 auto 4.5rem;
+    text-align: center;
+  }
+  .experience-quote-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .experience-quote-en {
+    font-family: var(--serif-en);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+  }
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .experience-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 1.5rem;
+  }
+  .exp-card {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: auto;
+  }
+  .exp-card-tall { aspect-ratio: 3/4; }
+  .exp-card-sq { aspect-ratio: 1; }
+  .exp-card-wide { aspect-ratio: 16/9; }
+  .exp-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.7s ease;
+  }
+  .exp-card:hover .exp-bg { transform: scale(1.04); }
+  .exp-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.4rem;
+    background: linear-gradient(to top, rgba(44,31,14,0.65) 0%, transparent 100%);
+    color: var(--white);
+  }
+  .exp-caption-ar {
+    font-family: var(--serif-ar);
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .exp-caption-en {
+    font-family: var(--serif-en);
+    font-size: 0.82rem;
+    font-style: italic;
+    opacity: 0.8;
+    display: block;
+  }
+  /* Experience card color palettes */
+  .exp-c1 { background: linear-gradient(145deg, #F5E4C8, #D4A870, #C9956A); }
+  .exp-c2 { background: linear-gradient(145deg, #EAD8B8, #C9A86C, #B8875A); }
+  .exp-c3 { background: linear-gradient(145deg, #F0DEC4, #DEB888, #C9A870); }
+  .exp-c4 { background: linear-gradient(145deg, #E8D5B4, #C8A064, #A87E44); }
+  .exp-c5 { background: linear-gradient(145deg, #F5EBD5, #E0C888, #CBA858); }
+
+  /* ═══════════════════════════════════════
+     WHY CHOOSE US
+  ═══════════════════════════════════════ */
+  #why {
+    background: var(--marble);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .why-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    border: 1px solid var(--beige-dark);
+    border-radius: 16px;
+    background: var(--marble);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .why-card:hover {
+    border-color: var(--gold-light);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(139,110,78,0.10);
+  }
+  .why-card:hover::before { opacity: 1; }
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .why-title-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+  .why-title-en {
+    font-family: var(--serif-en);
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+  .why-desc {
+    font-family: var(--serif-ar);
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* ═══════════════════════════════════════
+     LOCATION
+  ═══════════════════════════════════════ */
+  #location {
+    background: linear-gradient(160deg, #F0E8D5 0%, var(--cream) 100%);
+  }
+  .location-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .location-map-frame {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--beige-dark);
+    box-shadow: 0 20px 50px rgba(139,110,78,0.12);
+    background: #EAE0CC;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .location-map-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .map-pin-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(160,125,69,0.4);
+  }
+  .map-pin-icon::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: var(--white);
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+  .location-info { }
+  .location-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--beige-dark);
+  }
+  .location-detail:first-child { border-top: 1px solid var(--beige-dark); }
+  .loc-icon {
+    width: 36px; height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .loc-detail-content {}
+  .loc-detail-ar {
+    font-family: var(--serif-ar);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+  .loc-detail-en {
+    font-family: var(--sans-en);
+    font-size: 0.82rem;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
+  .location-cta {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .location-cta-title-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .location-cta-en {
+    font-family: var(--serif-en);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+
+  /* ═══════════════════════════════════════
+     TESTIMONIALS
+  ═══════════════════════════════════════ */
+  #testimonials {
+    background: var(--cream);
+  }
+  .testimonials-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .testimonial-card {
+    background: var(--marble);
+    border-radius: 18px;
+    padding: 2.2rem;
+    border: 1px solid var(--beige-dark);
+    position: relative;
+    transition: var(--transition);
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(139,110,78,0.10);
+    border-color: var(--gold-light);
+  }
+  .testimonial-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.2rem;
+    justify-content: flex-end;
+  }
+  .star { color: var(--gold); font-size: 14px; }
+  .testimonial-quote-mark {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.8rem;
+    font-family: var(--serif-en);
+    font-size: 60px;
+    color: var(--beige-dark);
+    line-height: 1;
+    font-style: italic;
+    opacity: 0.6;
+  }
+  .testimonial-text-ar {
+    font-family: var(--serif-ar);
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+    direction: rtl;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: flex-end;
+  }
+  .author-info { text-align: right; }
+  .author-name {
+    font-family: var(--serif-ar);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+  }
+  .author-city {
+    font-family: var(--sans-en);
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .author-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif-ar);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     GALLERY
+  ═══════════════════════════════════════ */
+  #gallery {
+    background: var(--marble);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 12px;
+  }
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:hover { transform: scale(1.02); z-index: 2; }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .gallery-item:nth-child(4) { grid-column: span 2; grid-row: span 1; }
+  .gallery-img-bg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+  }
+  .gallery-item:hover .gallery-img-bg { transform: scale(1.08); }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(201,169,110,0.0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.4s;
+  }
+  .gallery-item:hover .gallery-overlay { background: rgba(201,169,110,0.25); }
+  .gallery-ig-icon {
+    opacity: 0;
+    transition: opacity 0.4s;
+    color: var(--white);
+    font-size: 24px;
+  }
+  .gallery-item:hover .gallery-ig-icon { opacity: 1; }
+
+  /* Gallery color palettes */
+  .gc1 { background: linear-gradient(145deg, #F5E8D0, #E0C090, #C8A070); }
+  .gc2 { background: linear-gradient(145deg, #EDD8B8, #D4A870, #BF9060); }
+  .gc3 { background: linear-gradient(145deg, #F0EAD8, #D8C898, #C0A870); }
+  .gc4 { background: linear-gradient(145deg, #EAE0CC, #D0B888, #B89860); }
+  .gc5 { background: linear-gradient(145deg, #F5EDD8, #E0C880, #C8A860); }
+  .gc6 { background: linear-gradient(145deg, #EEDDC8, #DDBC80, #C09B60); }
+  .gc7 { background: linear-gradient(145deg, #F8F0E0, #E8D498, #D0B870); }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════ */
+  footer {
+    background: var(--text-dark);
+    color: var(--beige);
+    padding: 5rem 0 2.5rem;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  .footer-brand {}
+  .footer-logo-en {
+    font-family: var(--serif-en);
+    font-size: 1.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .footer-logo-ar {
+    font-family: var(--serif-ar);
+    font-size: 1.1rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1.2rem;
+  }
+  .footer-desc {
+    font-family: var(--serif-ar);
+    font-size: 0.88rem;
+    line-height: 2;
+    color: rgba(240,228,208,0.65);
+    margin-bottom: 1.5rem;
+  }
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    color: var(--gold-light);
+    font-size: 14px;
+    transition: var(--transition);
+    font-family: var(--sans-en);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .social-link:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+  .footer-col-title {
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-col-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,169,110,0.2);
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .footer-links a {
+    font-family: var(--serif-ar);
+    font-size: 0.9rem;
+    color: rgba(240,228,208,0.65);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-links-en a {
+    font-family: var(--sans-en);
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: rgba(240,228,208,0.5);
+  }
+  .footer-links-en a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(201,169,110,0.15);
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-copy {
+    font-family: var(--sans-en);
+    font-size: 11px;
+    color: rgba(240,228,208,0.4);
+    letter-spacing: 0.5px;
+  }
+  .footer-copy-ar {
+    font-family: var(--serif-ar);
+    font-size: 0.8rem;
+    color: rgba(240,228,208,0.4);
+  }
+  .footer-ksa-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,169,110,0.08);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+  }
+  .footer-ksa-badge span {
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════ */
+  /* ═══════════════════════════════════════
+     ANNOUNCEMENT BAR
+  ═══════════════════════════════════════ */
+  #announce-bar {
+    background: var(--text-dark);
+    color: var(--gold-light);
+    padding: 0;
+    height: 36px;
+    overflow: hidden;
+    position: relative;
+    z-index: 101;
+  }
+  .announce-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    height: 36px;
+    align-items: center;
+  }
+  .announce-item {
+    font-family: var(--sans-en);
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    padding: 0 2.5rem;
+    flex-shrink: 0;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  /* Adjust nav offset */
+  nav { top: 36px !important; }
+  #hero { padding-top: 36px; }
+
+  /* ═══════════════════════════════════════
+     SCROLL PROGRESS
+  ═══════════════════════════════════════ */
+  #scroll-progress {
+    position: fixed;
+    top: 36px;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-dark));
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ═══════════════════════════════════════
+     WHATSAPP FLOAT
+  ═══════════════════════════════════════ */
+  #whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .whatsapp-tooltip {
+    background: var(--text-dark);
+    color: var(--gold-light);
+    font-family: var(--serif-ar);
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+  #whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .whatsapp-btn {
+    width: 54px; height: 54px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: waPulse 3s ease-in-out infinite;
+  }
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(37,211,102,0.5);
+    animation: none;
+  }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+    50% { box-shadow: 0 8px 36px rgba(37,211,102,0.6), 0 0 0 8px rgba(37,211,102,0.1); }
+  }
+
+  /* ═══════════════════════════════════════
+     CHEF SECTION
+  ═══════════════════════════════════════ */
+  #chef {
+    background: var(--text-dark);
+    color: var(--beige);
+    overflow: hidden;
+    position: relative;
+  }
+  .chef-arabesque-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 10 C 120 30, 180 40, 160 80 C 180 120, 120 130, 100 160 C 80 130, 20 120, 40 80 C 20 40, 80 30, 100 10Z' fill='none' stroke='%23C9A96E' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+  .chef-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .chef-portrait-wrap {
+    position: relative;
+  }
+  .chef-portrait-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #3C2810 0%, #1A0E04 100%);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(201,169,110,0.2);
+    position: relative;
+  }
+  .chef-portrait-badge {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background: var(--gold);
+    color: var(--white);
+    font-family: var(--serif-en);
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    z-index: 2;
+  }
+  .chef-corner-ornament {
+    position: absolute;
+    bottom: -0.8rem;
+    left: -0.8rem;
+    width: 70px; height: 70px;
+    border-left: 2px solid rgba(201,169,110,0.4);
+    border-bottom: 2px solid rgba(201,169,110,0.4);
+    border-radius: 0 0 0 12px;
+  }
+  .chef-corner-ornament-tr {
+    position: absolute;
+    top: -0.8rem;
+    left: -0.8rem;
+    width: 70px; height: 70px;
+    border-left: 2px solid rgba(201,169,110,0.25);
+    border-top: 2px solid rgba(201,169,110,0.25);
+    border-radius: 12px 0 0 0;
+  }
+  .chef-text-section { }
+  .chef-label {
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .chef-name-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--beige);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .chef-name-en {
+    font-family: var(--serif-en);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+    display: block;
+    letter-spacing: 1px;
+  }
+  .chef-bio-ar {
+    font-family: var(--serif-ar);
+    font-size: 1rem;
+    line-height: 2.1;
+    color: rgba(240,228,208,0.75);
+    margin-bottom: 1.2rem;
+  }
+  .chef-bio-en {
+    font-family: var(--serif-en);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.9;
+    color: rgba(240,228,208,0.5);
+    margin-bottom: 2.5rem;
+    border-right: 2px solid rgba(201,169,110,0.3);
+    padding-right: 1.2rem;
+  }
+  .chef-credentials {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .chef-cred {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,169,110,0.08);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 25px;
+    padding: 0.5rem 1.1rem;
+  }
+  .chef-cred-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+  .chef-cred-text {
+    font-family: var(--serif-ar);
+    font-size: 0.82rem;
+    color: var(--gold-light);
+  }
+
+  /* ═══════════════════════════════════════
+     NEWSLETTER
+  ═══════════════════════════════════════ */
+  #newsletter {
+    background: linear-gradient(160deg, var(--beige) 0%, #F5E8CC 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter-arabesque {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L55 20 L70 20 L58 30 L63 45 L50 36 L37 45 L42 30 L30 20 L45 20 Z' fill='none' stroke='%23C9A96E' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+  .newsletter-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .newsletter-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 50%;
+    margin: 0 auto 1.8rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(160,125,69,0.25);
+  }
+  .newsletter-title-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+  .newsletter-title-en {
+    font-family: var(--serif-en);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+  }
+  .newsletter-desc {
+    font-family: var(--serif-ar);
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 2.2rem;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid var(--beige-dark);
+    border-radius: 35px;
+    overflow: hidden;
+    background: var(--marble);
+    box-shadow: 0 8px 30px rgba(139,110,78,0.1);
+    transition: box-shadow 0.3s;
+  }
+  .newsletter-form:focus-within {
+    box-shadow: 0 8px 40px rgba(201,169,110,0.25);
+    border-color: var(--gold-light);
+  }
+  .newsletter-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1rem 1.5rem;
+    font-family: var(--serif-ar);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    outline: none;
+    text-align: right;
+  }
+  .newsletter-input::placeholder { color: var(--text-light); }
+  .newsletter-submit {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    border: none;
+    padding: 0.9rem 1.8rem;
+    font-family: var(--sans-en);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 35px;
+    margin: 4px;
+    flex-shrink: 0;
+  }
+  .newsletter-submit:hover { background: linear-gradient(135deg, var(--gold-dark), #8B6030); }
+  .newsletter-privacy {
+    font-family: var(--sans-en);
+    font-size: 10.5px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    margin-top: 1.2rem;
+  }
+
+  /* ═══════════════════════════════════════
+     SEASONAL BANNER
+  ═══════════════════════════════════════ */
+  #seasonal {
+    background: linear-gradient(135deg, var(--text-dark) 0%, #3C2810 50%, #1A0E04 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .seasonal-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='25' fill='none' stroke='%23C9A96E' stroke-width='0.8'/%3E%3Ccircle cx='30' cy='30' r='15' fill='none' stroke='%23C9A96E' stroke-width='0.5'/%3E%3Cpath d='M5 30 L55 30 M30 5 L30 55' stroke='%23C9A96E' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+  .seasonal-content { position: relative; z-index: 2; }
+  .seasonal-tag {
+    display: inline-block;
+    background: rgba(201,169,110,0.15);
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 20px;
+    padding: 5px 18px;
+    font-family: var(--sans-en);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .seasonal-title-ar {
+    font-family: var(--serif-ar);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--beige);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .seasonal-title-en {
+    font-family: var(--serif-en);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 1.8rem;
+  }
+  .seasonal-desc {
+    font-family: var(--serif-ar);
+    font-size: 1.05rem;
+    color: rgba(240,228,208,0.65);
+    max-width: 500px;
+    margin: 0 auto 2.2rem;
+    line-height: 1.9;
+  }
+  .seasonal-items {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .seasonal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .seasonal-item-dot {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: relative;
+  }
+  .seasonal-item-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 50%;
+  }
+  .seasonal-item-name {
+    font-family: var(--serif-ar);
+    font-size: 0.9rem;
+    color: rgba(240,228,208,0.8);
+  }
+  .seasonal-item-en {
+    font-family: var(--serif-en);
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.7;
+  }
+  .btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--gold-light);
+    padding: 0.9rem 2.4rem;
+    border-radius: 35px;
+    font-family: var(--sans-en);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(201,169,110,0.4);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .btn-light:hover {
+    background: rgba(201,169,110,0.12);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  @media (max-width: 1024px) {
+    .chef-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .chef-portrait-frame { max-width: 380px; margin: 0 auto; aspect-ratio: 4/3; }
+    #announce-bar { display: none; }
+    nav { top: 0 !important; }
+    #scroll-progress { top: 0; }
+    #hero { padding-top: 0; }
+
+  }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav.scrolled { padding: 0.7rem 1.5rem; }
+    .nav-links { display: none; }
+    .products-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-frame-accent { display: none; }
+    .experience-grid { grid-template-columns: 1fr 1fr; }
+    .experience-grid-bottom { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .location-inner { grid-template-columns: 1fr; }
+    .testimonials-track { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+    .gallery-item:nth-child(1) { grid-column: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    section { padding: 5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ ANNOUNCEMENT BAR ═══ -->
+<div id="announce-bar">
+  <div class="announce-track">
+    <span class="announce-item">✦ طازج يومياً · Fresh Every Day ✦</span>
+    <span class="announce-item">✦ تغليف فاخر للهدايا · Luxury Gift Packaging ✦</span>
+    <span class="announce-item">✦ مكونات فرنسية أصيلة · Authentic French Ingredients ✦</span>
+    <span class="announce-item">✦ المدينة المنورة · Al-Madinah Al-Munawwarah ✦</span>
+    <span class="announce-item">✦ طازج يومياً · Fresh Every Day ✦</span>
+    <span class="announce-item">✦ تغليف فاخر للهدايا · Luxury Gift Packaging ✦</span>
+    <span class="announce-item">✦ مكونات فرنسية أصيلة · Authentic French Ingredients ✦</span>
+    <span class="announce-item">✦ المدينة المنورة · Al-Madinah Al-Munawwarah ✦</span>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-emblem">FS</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-en">FAMILY SWEET</span>
+      <span class="nav-logo-ar">فاميلي سويت</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">منتجاتنا</a></li>
+    <li><a href="#about">قصتنا</a></li>
+    <li><a href="#experience">تجربتنا</a></li>
+    <li><a href="#location">موقعنا</a></li>
+    <li><a href="#location" class="nav-btn">زيارتنا · Visit Us</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-arabesque"></div>
+  <div class="hero-arabesque-left"></div>
+  <div class="hero-decor hero-decor-1"></div>
+  <div class="hero-decor hero-decor-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-tagline reveal">Patisserie Française · المعجنات الفرنسية الفاخرة</div>
+    <h1 class="hero-title-ar reveal reveal-delay-1">عيش فخامة الحلويات الفرنسية</h1>
+    <h2 class="hero-title-en reveal reveal-delay-2">Taste the Art of French Elegance</h2>
+    <div class="hero-divider reveal reveal-delay-2">
+      <span></span>
+      <span class="hero-divider-icon">✦</span>
+      <span></span>
+    </div>
+    <p class="hero-sub-ar reveal reveal-delay-3">مصنوعة بعناية لأجمل لحظات عائلتك</p>
+    <p class="hero-sub-en reveal reveal-delay-3">Crafted for your sweetest family moments</p>
+    <div class="hero-cta-group reveal reveal-delay-4">
+      <a href="#location" class="btn-primary">
+        زيارتنا الآن
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#products" class="btn-secondary">
+        اكتشف قائمتنا · Discover Menu
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section id="products">
+  <div class="container">
+    <div class="section-label reveal">Signature Collection</div>
+    <h2 class="section-title-ar reveal reveal-delay-1">منتجاتنا المميزة</h2>
+    <p class="section-title-en reveal reveal-delay-2">Our Signature Pastries</p>
+    <div class="section-rule reveal reveal-delay-2">
+      <span class="section-rule-line"></span>
+      <div class="section-rule-diamond"></div>
+      <span class="section-rule-line"></span>
+    </div>
+
+    <div class="products-grid">
+      <!-- Mille-feuille -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img-wrap pastry-bg-mille">
+          <svg width="100%" height="100%" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="bgGrad1" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#F8EEDC"/>
+                <stop offset="100%" stop-color="#E0C090"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="280" fill="url(#bgGrad1)"/>
+            <!-- Pastry layers -->
+            <rect x="60" y="145" width="200" height="22" rx="3" fill="#C9A96E" opacity="0.9"/>
+            <rect x="60" y="168" width="200" height="18" rx="2" fill="#F5F0E8" opacity="0.95"/>
+            <rect x="60" y="187" width="200" height="20" rx="3" fill="#C9A96E" opacity="0.85"/>
+            <rect x="60" y="208" width="200" height="16" rx="2" fill="#F5F0E8" opacity="0.9"/>
+            <rect x="60" y="225" width="200" height="18" rx="3" fill="#C9A96E" opacity="0.8"/>
+            <!-- Cream top -->
+            <ellipse cx="160" cy="145" rx="100" ry="12" fill="#FFF8F0" opacity="0.98"/>
+            <!-- Glaze swirls -->
+            <path d="M 90 135 Q 120 120 150 135 Q 180 148 210 135 Q 230 125 240 130" stroke="#8B5E3C" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M 100 128 Q 130 115 160 128 Q 190 141 220 128" stroke="#8B5E3C" stroke-width="1.5" fill="none" opacity="0.25"/>
+            <!-- Gold drizzle -->
+            <path d="M 110 130 C 115 120, 125 118, 130 125 C 135 132, 145 130, 150 122 C 155 114, 165 115, 168 123 C 171 131, 180 128, 185 120 C 190 112, 200 115, 202 124" stroke="#C9A96E" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <!-- Powdered sugar dots -->
+            <circle cx="110" cy="108" r="3" fill="white" opacity="0.8"/>
+            <circle cx="160" cy="95" r="4" fill="white" opacity="0.7"/>
+            <circle cx="200" cy="110" r="2.5" fill="white" opacity="0.8"/>
+            <circle cx="135" cy="102" r="2" fill="white" opacity="0.6"/>
+            <circle cx="185" cy="98" r="3" fill="white" opacity="0.75"/>
+            <!-- Label -->
+            <text x="160" y="70" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B6E4E" opacity="0.7" font-style="italic">Mille-Feuille</text>
+          </svg>
+          <div class="product-overlay"></div>
+          <div class="product-badge">Signature</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name-ar">ميلفوي</div>
+          <div class="product-name-en">Mille-Feuille Classique</div>
+          <div class="product-rule">
+            <div class="product-rule-dot"></div>
+            <div class="product-rule-line"></div>
+          </div>
+          <p class="product-desc">طبقات متعددة من العجين الفرنسي الهش مع كريم الفانيلا الطازج وطبقة الكراميل الذهبي</p>
+        </div>
+      </div>
+
+      <!-- Éclair -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img-wrap pastry-bg-eclair">
+          <svg width="100%" height="100%" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="bgGrad2" cx="50%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#F2E0C4"/>
+                <stop offset="100%" stop-color="#C89A6A"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="280" fill="url(#bgGrad2)"/>
+            <!-- Eclair body -->
+            <rect x="50" y="110" width="220" height="70" rx="35" fill="#8B5E3C" opacity="0.9"/>
+            <rect x="55" y="114" width="210" height="60" rx="30" fill="#A0724A" opacity="0.8"/>
+            <!-- Chocolate glaze -->
+            <ellipse cx="160" cy="117" rx="105" ry="14" fill="#5C3822" opacity="0.85"/>
+            <!-- Glaze swirls / shine -->
+            <path d="M 90 108 Q 140 98 200 108" stroke="#C9A96E" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+            <path d="M 100 112 Q 150 104 205 112" stroke="white" stroke-width="1.5" fill="none" opacity="0.25" stroke-linecap="round"/>
+            <!-- Gold garnish -->
+            <path d="M 130 106 L 140 100 L 150 106 L 160 98 L 170 106 L 180 100 L 190 106" stroke="#C9A96E" stroke-width="2" fill="none" opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Cream visible at side -->
+            <ellipse cx="60" cy="147" rx="15" ry="20" fill="#FFF8EE" opacity="0.9"/>
+            <ellipse cx="260" cy="147" rx="15" ry="20" fill="#FFF8EE" opacity="0.9"/>
+            <!-- Shadow -->
+            <ellipse cx="160" cy="195" rx="90" ry="10" fill="#8B5E3C" opacity="0.15"/>
+            <text x="160" y="72" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#FFF0DC" opacity="0.8" font-style="italic">Éclair au Chocolat</text>
+          </svg>
+          <div class="product-overlay"></div>
+          <div class="product-badge">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name-ar">إكلير</div>
+          <div class="product-name-en">Éclair au Chocolat</div>
+          <div class="product-rule">
+            <div class="product-rule-dot"></div>
+            <div class="product-rule-line"></div>
+          </div>
+          <p class="product-desc">عجينة شو الفرنسية المحشوة بكريم الشوكولا الفاخر ومغطاة بالجاناش اللامع</p>
+        </div>
+      </div>
+
+      <!-- Macarons -->
+      <div class="product-card reveal reveal-delay-3">
+        <div class="product-img-wrap pastry-bg-savory">
+          <svg width="100%" height="100%" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="bgGrad3" cx="50%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#F5EDE0"/>
+                <stop offset="100%" stop-color="#D4B888"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="280" fill="url(#bgGrad3)"/>
+            <!-- Macaron 1 -->
+            <ellipse cx="100" cy="145" rx="42" ry="18" fill="#C9A96E" opacity="0.9"/>
+            <ellipse cx="100" cy="157" rx="38" ry="10" fill="#A07D50" opacity="0.8"/>
+            <ellipse cx="100" cy="168" rx="42" ry="18" fill="#C9A96E" opacity="0.85"/>
+            <!-- Filling -->
+            <ellipse cx="100" cy="157" rx="38" ry="7" fill="#FFF0DC" opacity="0.9"/>
+            <!-- Shine -->
+            <ellipse cx="90" cy="140" rx="18" ry="6" fill="white" opacity="0.2"/>
+
+            <!-- Macaron 2 -->
+            <ellipse cx="190" cy="135" rx="42" ry="18" fill="#E8A4B4" opacity="0.85"/>
+            <ellipse cx="190" cy="147" rx="38" ry="10" fill="#C47888" opacity="0.8"/>
+            <ellipse cx="190" cy="158" rx="42" ry="18" fill="#E8A4B4" opacity="0.8"/>
+            <ellipse cx="190" cy="147" rx="38" ry="7" fill="#FFF0DC" opacity="0.85"/>
+            <ellipse cx="180" cy="130" rx="18" ry="6" fill="white" opacity="0.2"/>
+
+            <!-- Macaron 3 (small, back) -->
+            <ellipse cx="148" cy="110" rx="32" ry="14" fill="#98C49C" opacity="0.75"/>
+            <ellipse cx="148" cy="119" rx="28" ry="8" fill="#70A074" opacity="0.7"/>
+            <ellipse cx="148" cy="128" rx="32" ry="14" fill="#98C49C" opacity="0.7"/>
+            <ellipse cx="148" cy="119" rx="28" ry="5" fill="#FFF0DC" opacity="0.8"/>
+
+            <!-- Floating petals -->
+            <circle cx="60" cy="80" r="5" fill="#E8A4B4" opacity="0.4"/>
+            <circle cx="250" cy="70" r="4" fill="#C9A96E" opacity="0.5"/>
+            <circle cx="270" cy="180" r="6" fill="#98C49C" opacity="0.35"/>
+            <circle cx="40" cy="185" r="4" fill="#E8A4B4" opacity="0.4"/>
+
+            <text x="160" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B6E4E" opacity="0.65" font-style="italic">Macarons Assortis</text>
+          </svg>
+          <div class="product-overlay"></div>
+          <div class="product-badge">Premium</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name-ar">ماكارون</div>
+          <div class="product-name-en">Macarons Assortis</div>
+          <div class="product-rule">
+            <div class="product-rule-dot"></div>
+            <div class="product-rule-line"></div>
+          </div>
+          <p class="product-desc">ماكارون فرنسي أصيل بنكهات متعددة — فانيلا، شوكولا، فراولة، وفستق</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual reveal">
+        <div class="about-frame-main">
+          <svg width="100%" height="100%" viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="aboutBg" cx="40%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#F8E8CC"/>
+                <stop offset="60%" stop-color="#D4A870"/>
+                <stop offset="100%" stop-color="#B88050"/>
+              </radialGradient>
+            </defs>
+            <rect width="360" height="450" fill="url(#aboutBg)"/>
+            <!-- Elegant marble table suggestion -->
+            <rect x="0" y="300" width="360" height="150" fill="#C9A96E" opacity="0.3"/>
+            <!-- Cake stand base -->
+            <ellipse cx="180" cy="320" rx="120" ry="15" fill="#8B6030" opacity="0.5"/>
+            <rect x="170" y="230" width="20" height="90" fill="#A07848" opacity="0.6"/>
+            <ellipse cx="180" cy="240" rx="80" ry="12" fill="#C9A96E" opacity="0.7"/>
+            <!-- Layered cake -->
+            <rect x="110" y="160" width="140" height="30" rx="4" fill="#F5ECD5" opacity="0.95"/>
+            <rect x="105" y="165" width="150" height="25" rx="3" fill="#C9A96E" opacity="0.5"/>
+            <rect x="115" y="130" width="130" height="32" rx="4" fill="#FFF4E8" opacity="0.95"/>
+            <rect x="110" y="136" width="140" height="22" rx="3" fill="#E0B870" opacity="0.4"/>
+            <rect x="120" y="100" width="120" height="32" rx="4" fill="#F5ECD5" opacity="0.95"/>
+            <rect x="115" y="106" width="130" height="22" rx="3" fill="#C9A96E" opacity="0.4"/>
+            <!-- Top decoration -->
+            <circle cx="180" cy="95" r="15" fill="#C9A96E" opacity="0.8"/>
+            <circle cx="180" cy="95" r="8" fill="#FAF0E0" opacity="0.9"/>
+            <!-- Floral accents -->
+            <circle cx="120" cy="100" r="6" fill="#E8A4B4" opacity="0.7"/>
+            <circle cx="240" cy="100" r="6" fill="#E8A4B4" opacity="0.7"/>
+            <circle cx="108" cy="132" r="5" fill="#C9A96E" opacity="0.6"/>
+            <circle cx="252" cy="132" r="5" fill="#C9A96E" opacity="0.6"/>
+            <!-- Ambiance dots -->
+            <circle cx="60" cy="60" r="8" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="290" cy="80" r="5" fill="rgba(255,255,255,0.1)"/>
+            <circle cx="40" cy="200" r="6" fill="rgba(255,255,255,0.12)"/>
+            <circle cx="310" cy="180" r="10" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <div class="about-frame-accent">
+          <svg width="90%" height="90%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="160" fill="#FAF6EE"/>
+            <text x="80" y="55" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#C9A96E" letter-spacing="2">SINCE</text>
+            <text x="80" y="90" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="300" fill="#8B6E4E">2018</text>
+            <text x="80" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#C9A96E" letter-spacing="1.5" font-style="italic">Established in</text>
+            <text x="80" y="128" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#9B866C" letter-spacing="1.5">Saudi Arabia</text>
+            <rect x="50" y="140" width="60" height="1" fill="#C9A96E" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="about-quote-badge">
+          <span>"</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-label reveal" style="text-align:right; margin-bottom:0.8rem;">Notre Histoire · قصتنا</div>
+        <h2 class="section-title-ar reveal reveal-delay-1" style="text-align:right;">من باريس إلى قلب المملكة</h2>
+        <p class="section-title-en reveal reveal-delay-1" style="text-align:right;">From Paris to the Heart of Arabia</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:1.8rem; justify-content:flex-end;" class="reveal reveal-delay-1">
+          <div class="section-rule-diamond"></div>
+          <span class="section-rule-line"></span>
+        </div>
+        <p class="about-story-en reveal reveal-delay-2">"Born from a deep love for French pastry and a devotion to family — Family Sweet brings the finest traditions of Parisian confectionery into the warmth of Saudi homes."</p>
+        <p class="about-story-ar reveal reveal-delay-2">وُلدت فاميلي سويت من شغف حقيقي بالحلويات الفرنسية الفاخرة، ومن إيمان راسخ بأن أجمل اللحظات تُصنع حول مائدة العائلة. نجمع بين أعرق تقاليد المعجنات الباريسية وروح الدفء العربي الأصيل، لنقدم لك تجربة لا تُنسى.</p>
+        <p class="about-story-ar reveal reveal-delay-3">نستخدم أجود المكونات المستوردة من فرنسا، ونصنع كل قطعة بعناية وإتقان، لأن عائلتك تستحق الأفضل دائماً.</p>
+        <div class="about-stats reveal reveal-delay-4">
+          <div class="stat-item">
+            <span class="stat-num">50+</span>
+            <span class="stat-label-ar">نوع من الحلويات</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">6+</span>
+            <span class="stat-label-ar">سنوات من الإتقان</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">10K+</span>
+            <span class="stat-label-ar">عميل سعيد</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label reveal">L'Expérience</div>
+    <div class="experience-quote reveal reveal-delay-1">
+      <p class="experience-quote-ar">أكثر من مجرد حلويات… إنها لحظة تُجمعكم</p>
+      <p class="experience-quote-en">"More than desserts… it's a shared moment"</p>
+    </div>
+
+    <div class="experience-grid reveal reveal-delay-1">
+      <!-- Tall card -->
+      <div class="exp-card exp-card-tall">
+        <div class="exp-bg exp-c1" style="height:100%;">
+          <svg width="100%" height="100%" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="300" height="400" fill="#F0DEC8"/>
+            <!-- Table surface -->
+            <ellipse cx="150" cy="380" rx="200" ry="50" fill="#D4A870" opacity="0.4"/>
+            <!-- Coffee cup -->
+            <ellipse cx="150" cy="255" rx="60" ry="12" fill="#8B5E3C" opacity="0.3"/>
+            <path d="M 100 175 L 108 250 Q 150 265 192 250 L 200 175 Z" fill="#F8F0E0" stroke="#C9A96E" stroke-width="1.5" opacity="0.9"/>
+            <ellipse cx="150" cy="175" rx="50" ry="12" fill="#E8D8C0" opacity="0.95"/>
+            <ellipse cx="150" cy="175" rx="38" ry="9" fill="#C8987A" opacity="0.7"/>
+            <!-- Handle -->
+            <path d="M 200 195 Q 225 195 225 215 Q 225 235 200 235" stroke="#C9A96E" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Steam -->
+            <path d="M 135 155 Q 130 140 135 125 Q 140 110 135 95" stroke="white" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+            <path d="M 155 150 Q 150 133 155 118 Q 160 103 155 88" stroke="white" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
+            <!-- Saucer -->
+            <ellipse cx="150" cy="258" rx="70" ry="14" fill="#E8D0B0" stroke="#C9A96E" stroke-width="1" opacity="0.85"/>
+            <!-- Macaron beside cup -->
+            <ellipse cx="85" cy="268" rx="25" ry="10" fill="#E8A4B4" opacity="0.9"/>
+            <rect x="63" y="265" width="44" height="6" fill="#FFF0DC" opacity="0.85"/>
+            <ellipse cx="85" cy="274" rx="25" ry="10" fill="#E8A4B4" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="exp-caption">
+          <span class="exp-caption-ar">لحظات القهوة الصباحية</span>
+          <span class="exp-caption-en">Morning Coffee Moments</span>
+        </div>
+      </div>
+      <!-- Square card -->
+      <div class="exp-card exp-card-sq">
+        <div class="exp-bg exp-c2" style="height:100%;">
+          <svg width="100%" height="100%" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="280" height="280" fill="#EAD4B0"/>
+            <!-- Gift box -->
+            <rect x="70" y="130" width="140" height="100" rx="6" fill="#C9A96E" opacity="0.85"/>
+            <rect x="70" y="130" width="140" height="15" rx="3" fill="#A07840" opacity="0.9"/>
+            <!-- Ribbon vertical -->
+            <rect x="128" y="130" width="24" height="100" fill="#8B5E3C" opacity="0.5"/>
+            <!-- Ribbon horizontal -->
+            <rect x="70" y="138" width="140" height="15" fill="#8B5E3C" opacity="0.4"/>
+            <!-- Bow -->
+            <path d="M 140 130 C 120 110, 95 115, 100 130 C 105 145, 130 138, 140 130Z" fill="#C9A96E" stroke="#A07840" stroke-width="1" opacity="0.9"/>
+            <path d="M 140 130 C 160 110, 185 115, 180 130 C 175 145, 150 138, 140 130Z" fill="#C9A96E" stroke="#A07840" stroke-width="1" opacity="0.9"/>
+            <circle cx="140" cy="130" r="8" fill="#E8D090" opacity="0.9"/>
+            <!-- Stars float -->
+            <text x="55" y="120" font-size="16" fill="#C9A96E" opacity="0.6">✦</text>
+            <text x="210" y="115" font-size="12" fill="#C9A96E" opacity="0.5">✦</text>
+            <text x="80" y="250" font-size="10" fill="#C9A96E" opacity="0.4">✦</text>
+          </svg>
+        </div>
+        <div class="exp-caption">
+          <span class="exp-caption-ar">تغليف فاخر للهدايا</span>
+          <span class="exp-caption-en">Elegant Gift Packaging</span>
+        </div>
+      </div>
+      <!-- Square card -->
+      <div class="exp-card exp-card-sq">
+        <div class="exp-bg exp-c3" style="height:100%;">
+          <svg width="100%" height="100%" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="280" height="280" fill="#EEE2C8"/>
+            <!-- Family silhouette suggestion - warm scene -->
+            <!-- Table -->
+            <rect x="20" y="210" width="240" height="12" rx="3" fill="#A07840" opacity="0.6"/>
+            <rect x="50" y="222" width="12" height="50" fill="#A07840" opacity="0.5"/>
+            <rect x="218" y="222" width="12" height="50" fill="#A07840" opacity="0.5"/>
+            <!-- Dessert plate -->
+            <ellipse cx="140" cy="210" rx="55" ry="10" fill="#E8D8C0" stroke="#C9A96E" stroke-width="1" opacity="0.9"/>
+            <!-- Cake slice on plate -->
+            <path d="M 120 180 L 140 160 L 160 180 Z" fill="#C9A96E" opacity="0.9"/>
+            <rect x="120" y="180" width="40" height="28" rx="2" fill="#F5ECD5" opacity="0.95"/>
+            <rect x="120" y="186" width="40" height="10" fill="#C9A96E" opacity="0.5"/>
+            <!-- Chairs / family presence suggestion -->
+            <rect x="40" y="140" width="55" height="70" rx="5" fill="#D4A870" opacity="0.35"/>
+            <rect x="185" y="140" width="55" height="70" rx="5" fill="#D4A870" opacity="0.35"/>
+            <!-- Candle on table -->
+            <rect x="175" y="185" width="8" height="26" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="179" cy="183" rx="5" ry="3" fill="#C9A96E" opacity="0.7"/>
+            <path d="M 179 183 L 179 168" stroke="#FFD080" stroke-width="3" opacity="0.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="exp-caption">
+          <span class="exp-caption-ar">تجمعات العائلة</span>
+          <span class="exp-caption-en">Family Gatherings</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-grid-bottom" style="margin-top:1.5rem;">
+      <div class="exp-card exp-card-wide reveal reveal-delay-2">
+        <div class="exp-bg exp-c4" style="height:220px; width:100%;">
+          <svg width="100%" height="100%" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="480" height="220" fill="#E4D0A8"/>
+            <!-- Elegant display shelf -->
+            <rect x="0" y="150" width="480" height="8" fill="#B88848" opacity="0.6"/>
+            <!-- Multiple pastries on shelf -->
+            <!-- Macaron tower -->
+            <ellipse cx="80" cy="150" rx="28" ry="8" fill="#C9A96E" opacity="0.9"/>
+            <ellipse cx="80" cy="142" rx="24" ry="7" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="80" cy="135" rx="26" ry="8" fill="#E8A4B4" opacity="0.85"/>
+            <ellipse cx="80" cy="127" rx="22" ry="7" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="80" cy="120" rx="24" ry="8" fill="#98C49C" opacity="0.85"/>
+            <ellipse cx="80" cy="112" rx="20" ry="7" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="80" cy="105" rx="22" ry="8" fill="#C9A96E" opacity="0.85"/>
+            <!-- Tart -->
+            <ellipse cx="200" cy="148" rx="50" ry="10" fill="#C9A96E" opacity="0.4"/>
+            <ellipse cx="200" cy="145" rx="50" ry="12" fill="#E8C890" stroke="#C9A96E" stroke-width="1" opacity="0.9"/>
+            <ellipse cx="200" cy="140" rx="42" ry="10" fill="#8B4040" opacity="0.7"/>
+            <ellipse cx="200" cy="136" rx="35" ry="8" fill="#C83030" opacity="0.6"/>
+            <!-- Choux -->
+            <circle cx="330" cy="135" r="22" fill="#C9A96E" opacity="0.85"/>
+            <circle cx="330" cy="128" r="18" fill="#F5ECD5" opacity="0.9"/>
+            <circle cx="322" cy="122" r="12" fill="#C9A96E" opacity="0.7"/>
+            <circle cx="338" cy="120" r="10" fill="#C9A96E" opacity="0.65"/>
+            <!-- Text label -->
+            <text x="420" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#8B6E4E" opacity="0.6" font-style="italic">Notre Vitrine</text>
+          </svg>
+        </div>
+        <div class="exp-caption">
+          <span class="exp-caption-ar">واجهتنا الزجاجية الفاخرة</span>
+          <span class="exp-caption-en">Our Elegant Display</span>
+        </div>
+      </div>
+      <div class="exp-card exp-card-tall reveal reveal-delay-3" style="min-height:220px;">
+        <div class="exp-bg exp-c5" style="height:100%; min-height:220px;">
+          <svg width="100%" height="100%" viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="340" fill="#F5EDD4"/>
+            <!-- Tart with fruits -->
+            <ellipse cx="160" cy="230" rx="100" ry="18" fill="#C9A96E" opacity="0.35"/>
+            <ellipse cx="160" cy="220" rx="100" ry="20" fill="#E8D0A0" stroke="#C9A96E" stroke-width="1.5" opacity="0.95"/>
+            <ellipse cx="160" cy="213" rx="88" ry="17" fill="#F5ECD5" opacity="0.9"/>
+            <ellipse cx="160" cy="208" rx="80" ry="15" fill="#FFF0C8" opacity="0.95"/>
+            <!-- Fruit arrangement on tart -->
+            <circle cx="160" cy="195" r="18" fill="#C83030" opacity="0.75"/>
+            <circle cx="135" cy="200" r="14" fill="#E85080" opacity="0.7"/>
+            <circle cx="185" cy="200" r="14" fill="#C83030" opacity="0.7"/>
+            <circle cx="148" cy="178" r="10" fill="#E8A030" opacity="0.75"/>
+            <circle cx="172" cy="178" r="10" fill="#A0C040" opacity="0.7"/>
+            <ellipse cx="160" cy="175" rx="8" ry="5" fill="#C83030" opacity="0.65"/>
+            <!-- Glaze shine -->
+            <ellipse cx="152" cy="192" rx="12" ry="8" fill="white" opacity="0.12"/>
+            <!-- Gold leaf -->
+            <text x="200" y="178" font-size="12" fill="#C9A96E" opacity="0.7">✦</text>
+            <!-- Stand base -->
+            <ellipse cx="160" cy="240" rx="110" ry="14" fill="#D4A870" opacity="0.5"/>
+            <rect x="152" y="240" width="16" height="60" fill="#C9A96E" opacity="0.6"/>
+            <ellipse cx="160" cy="300" rx="70" ry="12" fill="#A07848" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="exp-caption">
+          <span class="exp-caption-ar">تورت الفواكه الفرنسي</span>
+          <span class="exp-caption-en">Tarte aux Fruits</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY CHOOSE US ═══ -->
+<section id="why">
+  <div class="container">
+    <div class="section-label reveal">Pourquoi Nous · لماذا نحن</div>
+    <h2 class="section-title-ar reveal reveal-delay-1">الجودة في كل تفصيلة</h2>
+    <p class="section-title-en reveal reveal-delay-2">Excellence in Every Detail</p>
+    <div class="section-rule reveal reveal-delay-2">
+      <span class="section-rule-line"></span>
+      <div class="section-rule-diamond"></div>
+      <span class="section-rule-line"></span>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="#C9A96E" stroke-width="1"/>
+            <path d="M24 12 C18 12 12 17 12 24 C12 31 18 36 24 36 C30 36 36 31 36 24" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <circle cx="24" cy="24" r="6" stroke="#C9A96E" stroke-width="1.2" fill="none"/>
+            <path d="M24 18 L24 15 M24 33 L24 30 M18 24 L15 24 M33 24 L30 24" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="36" cy="14" r="5" fill="#C9A96E" opacity="0.15" stroke="#C9A96E" stroke-width="1"/>
+            <path d="M33.5 14 L35.5 16 L38.5 12" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="why-title-ar">طازج يومياً</div>
+        <span class="why-title-en">Fresh Daily</span>
+        <p class="why-desc">نُعدّ حلوياتنا كل يوم من الصفر، لضمان أعلى درجات النضارة والجودة</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="#C9A96E" stroke-width="1"/>
+            <path d="M16 30 L16 20 Q16 16 20 16 L28 16 Q32 16 32 20 L32 30" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M14 30 L34 30" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M20 16 Q24 10 28 16" stroke="#C9A96E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <circle cx="24" cy="22" r="3" stroke="#C9A96E" stroke-width="1.2" fill="none"/>
+            <path d="M24 25 L24 28" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="why-title-ar">تقنيات فرنسية</div>
+        <span class="why-title-en">French Techniques</span>
+        <p class="why-desc">نتبع أرقى الأساليب الباريسية الكلاسيكية في صناعة كل منتج</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="#C9A96E" stroke-width="1"/>
+            <path d="M24 14 L26.5 20 L33 20 L27.5 24.5 L29.5 31 L24 27.5 L18.5 31 L20.5 24.5 L15 20 L21.5 20 Z" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="why-title-ar">مكونات فاخرة</div>
+        <span class="why-title-en">Premium Ingredients</span>
+        <p class="why-desc">نستخدم أجود المكونات المستوردة من فرنسا وأوروبا لنتائج لا مثيل لها</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <div class="why-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="#C9A96E" stroke-width="1"/>
+            <path d="M24 34 C24 34 13 27 13 19 C13 15.5 16 13 19.5 13 C21.5 13 23 14 24 15.5 C25 14 26.5 13 28.5 13 C32 13 35 15.5 35 19 C35 27 24 34 24 34Z" stroke="#C9A96E" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="why-title-ar">مثالي للمناسبات</div>
+        <span class="why-title-en">Perfect for Occasions</span>
+        <p class="why-desc">هدايا فاخرة، أعياد ميلاد، حفلات خطوبة، تجمعات عائلية — كل لحظة خاصة</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOCATION ═══ -->
+<section id="location">
+  <div class="container">
+    <div class="section-label reveal">Nous Trouver · موقعنا</div>
+    <h2 class="section-title-ar reveal reveal-delay-1">زورونا في المدينة المنورة</h2>
+    <p class="section-title-en reveal reveal-delay-1">Visit Us in Al-Madinah Al-Munawwarah</p>
+    <div class="section-rule reveal reveal-delay-2">
+      <span class="section-rule-line"></span>
+      <div class="section-rule-diamond"></div>
+      <span class="section-rule-line"></span>
+    </div>
+    <div class="location-inner">
+      <div class="location-map-frame reveal reveal-delay-1">
+        <div class="location-map-inner">
+          <div class="map-pin-icon"></div>
+          <svg width="280" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" opacity="0.35">
+            <!-- Stylized map streets -->
+            <rect x="0" y="60" width="280" height="4" fill="#C9A96E"/>
+            <rect x="0" y="110" width="280" height="3" fill="#C9A96E"/>
+            <rect x="80" y="0" width="4" height="180" fill="#C9A96E"/>
+            <rect x="160" y="0" width="3" height="180" fill="#C9A96E"/>
+            <rect x="220" y="0" width="2" height="180" fill="#C9A96E" opacity="0.6"/>
+            <rect x="0" y="145" width="280" height="2" fill="#C9A96E" opacity="0.5"/>
+            <!-- Blocks -->
+            <rect x="10" y="10" width="60" height="44" rx="3" fill="#D4A870" opacity="0.4"/>
+            <rect x="90" y="10" width="60" height="44" rx="3" fill="#D4A870" opacity="0.3"/>
+            <rect x="170" y="10" width="45" height="44" rx="3" fill="#D4A870" opacity="0.4"/>
+            <rect x="10" y="70" width="60" height="34" rx="3" fill="#D4A870" opacity="0.35"/>
+            <rect x="90" y="70" width="60" height="34" rx="3" fill="#D4A870" opacity="0.3"/>
+            <rect x="170" y="70" width="45" height="34" rx="3" fill="#D4A870" opacity="0.4"/>
+            <rect x="10" y="118" width="60" height="25" rx="3" fill="#D4A870" opacity="0.35"/>
+            <rect x="90" y="118" width="60" height="25" rx="3" fill="#D4A870" opacity="0.3"/>
+            <!-- Highlight our location -->
+            <rect x="92" y="68" width="56" height="38" rx="3" fill="#C9A96E" opacity="0.7"/>
+          </svg>
+          <div style="text-align:center; margin-top:8px;">
+            <div style="font-family:'Noto Naskh Arabic', serif; font-size:1rem; color:#8B6E4E; font-weight:500;">المدينة المنورة، المملكة العربية السعودية</div>
+            <div style="font-family:'Montserrat', sans-serif; font-size:11px; color:#9B866C; letter-spacing:1.5px; margin-top:4px;">AL-MADINAH AL-MUNAWWARAH, KSA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-info">
+        <div class="location-detail reveal reveal-delay-1">
+          <div class="loc-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="loc-detail-content">
+            <div class="loc-detail-ar">شارع الأمير محمد بن عبدالعزيز، المدينة المنورة</div>
+            <div class="loc-detail-en">Prince Mohammed bin Abdulaziz St, Al-Madinah</div>
+          </div>
+        </div>
+        <div class="location-detail reveal reveal-delay-2">
+          <div class="loc-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="loc-detail-content">
+            <div class="loc-detail-ar">السبت – الخميس: ٨ص – ١١م | الجمعة: ٣م – ١٢م</div>
+            <div class="loc-detail-en">Sat–Thu: 8AM–11PM · Fri: 3PM–12AM</div>
+          </div>
+        </div>
+        <div class="location-detail reveal reveal-delay-3">
+          <div class="loc-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.06 6.06l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="loc-detail-content">
+            <div class="loc-detail-ar">+966 5X XXX XXXX</div>
+            <div class="loc-detail-en">Call or WhatsApp</div>
+          </div>
+        </div>
+        <div class="location-cta reveal reveal-delay-4">
+          <p class="location-cta-title-ar">نحن في انتظاركم بكل ترحاب 🤍</p>
+          <p class="location-cta-en">"We're waiting to welcome you with open arms"</p>
+          <a href="#" class="btn-primary" style="display:inline-flex; align-self:flex-start;">
+            احصل على الاتجاهات
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label reveal">Témoignages · آراء عملائنا</div>
+    <h2 class="section-title-ar reveal reveal-delay-1">ماذا يقول ضيوفنا</h2>
+    <p class="section-title-en reveal reveal-delay-1">Words from Our Valued Guests</p>
+    <div class="section-rule reveal reveal-delay-2">
+      <span class="section-rule-line"></span>
+      <div class="section-rule-diamond"></div>
+      <span class="section-rule-line"></span>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text-ar">تجربة لا تُنسى! الميلفوي كان هشاً بشكل مثالي والكريم غني ولذيذ جداً. طلبت صندوق هدايا لعيد ميلاد صديقتي وكانت مبهورة من التغليف الأنيق والطعم الرائع.</p>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <span class="author-name">نورة الشمري</span>
+            <span class="author-city">Al-Madinah</span>
+          </div>
+          <div class="author-avatar" style="background: linear-gradient(135deg, #C9A96E, #A07840);">ن</div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text-ar">أفضل ماكارون جربته خارج فرنسا! أجواء المحل أنيقة جداً وتشعرك بالفخامة. أصبحت وجهتي المفضلة مع العائلة في نهاية الأسبوع. شكراً فاميلي سويت!</p>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <span class="author-name">خالد العتيبي</span>
+            <span class="author-city">Al-Madinah</span>
+          </div>
+          <div class="author-avatar" style="background: linear-gradient(135deg, #8B6E4E, #5A4535);">خ</div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="testimonial-quote-mark">"</div>
+        <p class="testimonial-text-ar">طلبت تورتة فاخرة لمناسبة خطوبتي وفاقت توقعاتي بكل المقاييس. الاهتمام بالتفاصيل والمذاق الفرنسي الأصيل جعلها لحظة لا تنسى. ستبقى وجهتنا دائماً.</p>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <span class="author-name">ريم الزهراني</span>
+            <span class="author-city">Al-Madinah</span>
+          </div>
+          <div class="author-avatar" style="background: linear-gradient(135deg, #E8A4B4, #C47888);">ر</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label reveal">Instagram · معرض صورنا</div>
+    <h2 class="section-title-ar reveal reveal-delay-1">لحظات من فاميلي سويت</h2>
+    <p class="section-title-en reveal reveal-delay-1">Moments from Family Sweet</p>
+    <div class="section-rule reveal reveal-delay-2">
+      <span class="section-rule-line"></span>
+      <div class="section-rule-diamond"></div>
+      <span class="section-rule-line"></span>
+    </div>
+    <div class="gallery-grid reveal reveal-delay-1">
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc1" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="300" height="200" fill="#F0DEC4"/>
+            <ellipse cx="150" cy="120" rx="90" ry="18" fill="#C9A96E" opacity="0.4"/>
+            <rect x="60" y="80" width="180" height="48" rx="5" fill="#F5ECD5" opacity="0.95" stroke="#C9A96E" stroke-width="1"/>
+            <rect x="60" y="92" width="180" height="24" fill="#C9A96E" opacity="0.45"/>
+            <ellipse cx="150" cy="80" rx="90" ry="14" fill="#FAF6EE" opacity="0.95"/>
+            <path d="M 90 72 Q 150 58 210 72" stroke="#C9A96E" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <text x="150" y="155" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#8B6E4E" opacity="0.5" font-style="italic">Mille-Feuille</text>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc2" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="200" fill="#EDD8B8"/>
+            <!-- Macarons -->
+            <ellipse cx="100" cy="120" rx="35" ry="12" fill="#E8A4B4" opacity="0.9"/>
+            <rect x="68" y="115" width="64" height="8" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="100" cy="126" rx="35" ry="12" fill="#E8A4B4" opacity="0.85"/>
+            <ellipse cx="60" cy="130" rx="28" ry="10" fill="#C9A96E" opacity="0.85"/>
+            <rect x="34" y="126" width="52" height="7" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="60" cy="136" rx="28" ry="10" fill="#C9A96E" opacity="0.8"/>
+            <ellipse cx="140" cy="125" rx="28" ry="10" fill="#98C49C" opacity="0.85"/>
+            <rect x="114" y="121" width="52" height="7" fill="#FFF0DC" opacity="0.9"/>
+            <ellipse cx="140" cy="131" rx="28" ry="10" fill="#98C49C" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc3" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="200" fill="#EEE4D0"/>
+            <!-- Gift box close up -->
+            <rect x="40" y="80" width="120" height="90" rx="5" fill="#C9A96E" opacity="0.8"/>
+            <rect x="40" y="80" width="120" height="18" fill="#A07840" opacity="0.85"/>
+            <rect x="88" y="80" width="24" height="90" fill="#8B5E3C" opacity="0.4"/>
+            <rect x="40" y="88" width="120" height="14" fill="#8B5E3C" opacity="0.35"/>
+            <path d="M 100 80 C 80 62, 58 68, 62 80 C 66 92, 90 85, 100 80Z" fill="#C9A96E" stroke="#A07840" stroke-width="0.5" opacity="0.9"/>
+            <path d="M 100 80 C 120 62, 142 68, 138 80 C 134 92, 110 85, 100 80Z" fill="#C9A96E" stroke="#A07840" stroke-width="0.5" opacity="0.9"/>
+            <circle cx="100" cy="80" r="7" fill="#E8D090" opacity="0.95"/>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc4" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="300" height="200" fill="#E8D8B8"/>
+            <!-- Tart fruits spread -->
+            <ellipse cx="150" cy="140" rx="90" ry="18" fill="#C9A96E" opacity="0.3"/>
+            <ellipse cx="150" cy="135" rx="90" ry="18" fill="#E8D0A0" stroke="#C9A96E" stroke-width="1" opacity="0.9"/>
+            <ellipse cx="150" cy="130" rx="80" ry="15" fill="#F5ECD5" opacity="0.9"/>
+            <circle cx="150" cy="115" r="20" fill="#C83030" opacity="0.7"/>
+            <circle cx="122" cy="122" r="14" fill="#E85080" opacity="0.65"/>
+            <circle cx="178" cy="122" r="14" fill="#C83030" opacity="0.65"/>
+            <circle cx="137" cy="102" r="10" fill="#E8A030" opacity="0.7"/>
+            <circle cx="163" cy="102" r="10" fill="#A0C040" opacity="0.65"/>
+            <text x="150" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#8B6E4E" opacity="0.5" font-style="italic">Tarte aux Fruits</text>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc5" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="200" fill="#F5EDD4"/>
+            <!-- Choux / Profiteroles -->
+            <circle cx="100" cy="100" r="35" fill="#C9A96E" opacity="0.8"/>
+            <circle cx="100" cy="90" r="28" fill="#F5ECD5" opacity="0.92"/>
+            <circle cx="88" cy="82" r="18" fill="#C9A96E" opacity="0.65"/>
+            <circle cx="112" cy="80" r="16" fill="#C9A96E" opacity="0.6"/>
+            <!-- Chocolate drizzle -->
+            <path d="M 75 78 Q 100 65 125 78" stroke="#5C3822" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+            <path d="M 82 90 Q 100 80 118 90" stroke="#5C3822" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+            <circle cx="100" cy="98" r="6" fill="#C9A96E" opacity="0.7"/>
+            <circle cx="85" cy="68" r="4" fill="white" opacity="0.3"/>
+            <circle cx="112" cy="68" r="3" fill="white" opacity="0.25"/>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc6" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="200" fill="#EEDDC8"/>
+            <!-- Croissant elegant -->
+            <path d="M 50 130 Q 60 80, 100 75 Q 140 70, 155 100 Q 170 130, 155 145 Q 130 160, 100 155 Q 70 150, 50 130Z" fill="#D4A050" stroke="#B87828" stroke-width="1.5" fill-rule="evenodd" opacity="0.9"/>
+            <path d="M 60 128 Q 70 88, 100 84 Q 128 80, 142 104" stroke="#F5D080" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+            <path d="M 65 140 Q 80 125, 105 123 Q 130 121, 148 132" stroke="#F5D080" stroke-width="1.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+            <!-- Gold shine -->
+            <path d="M 68 108 Q 90 96, 110 97" stroke="white" stroke-width="2" fill="none" opacity="0.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-bg gc7" style="height:200px;">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="200" height="200" fill="#F8F0E0"/>
+            <!-- Logo emblem artistic -->
+            <circle cx="100" cy="100" r="65" stroke="#C9A96E" stroke-width="1" fill="none" opacity="0.4"/>
+            <circle cx="100" cy="100" r="55" stroke="#C9A96E" stroke-width="0.5" fill="none" opacity="0.3"/>
+            <text x="100" y="88" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="300" fill="#C9A96E" opacity="0.8" font-style="italic">FS</text>
+            <text x="100" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#8B6E4E" letter-spacing="3" opacity="0.7">FAMILY SWEET</text>
+            <text x="100" y="126" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9B866C" letter-spacing="1.5" opacity="0.6">فاميلي سويت</text>
+            <rect x="70" y="134" width="60" height="1" fill="#C9A96E" opacity="0.3"/>
+            <text x="100" y="148" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#C9A96E" letter-spacing="2.5" opacity="0.5">AL-MADINAH · KSA</text>
+          </svg>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-ig-icon">✦</span></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+      <a href="#" class="btn-secondary">تابعونا على إنستغرام · @familysweet.sa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHEF SECTION ═══ -->
+<section id="chef">
+  <div class="chef-arabesque-bg"></div>
+  <div class="container">
+    <div class="chef-inner">
+      <div class="chef-portrait-wrap reveal">
+        <div class="chef-portrait-frame">
+          <svg width="100%" height="100%" viewBox="0 0 340 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="chefBg" cx="50%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#3C2810"/>
+                <stop offset="100%" stop-color="#0D0703"/>
+              </radialGradient>
+              <radialGradient id="chefLight" cx="40%" cy="25%" r="60%">
+                <stop offset="0%" stop-color="rgba(201,169,110,0.15)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect width="340" height="450" fill="url(#chefBg)"/>
+            <ellipse cx="140" cy="180" rx="180" ry="200" fill="url(#chefLight)"/>
+            <!-- Chef hat -->
+            <rect x="115" y="80" width="110" height="55" rx="8" fill="#F5F0E8" opacity="0.9"/>
+            <rect x="95" y="128" width="150" height="18" rx="4" fill="#E8DFD0" opacity="0.95"/>
+            <ellipse cx="170" cy="80" rx="55" ry="32" fill="white" opacity="0.9"/>
+            <path d="M 128 80 Q 145 55, 170 52 Q 195 55, 212 80" fill="white" opacity="0.85"/>
+            <!-- Face oval placeholder -->
+            <ellipse cx="170" cy="195" rx="58" ry="68" fill="#C9A070" opacity="0.6"/>
+            <ellipse cx="170" cy="200" rx="50" ry="58" fill="#D4A870" opacity="0.5"/>
+            <!-- Chef jacket -->
+            <path d="M 80 290 Q 80 265, 112 255 L 170 250 L 228 255 Q 260 265, 260 290 L 260 450 L 80 450 Z" fill="#F8F4EC" opacity="0.88"/>
+            <path d="M 150 255 L 150 380" stroke="#E0D0B8" stroke-width="2" stroke-dasharray="4,8" opacity="0.5"/>
+            <path d="M 190 255 L 190 380" stroke="#E0D0B8" stroke-width="2" stroke-dasharray="4,8" opacity="0.5"/>
+            <!-- Buttons -->
+            <circle cx="170" cy="280" r="5" fill="#C9A96E" opacity="0.7"/>
+            <circle cx="170" cy="300" r="5" fill="#C9A96E" opacity="0.65"/>
+            <circle cx="170" cy="320" r="5" fill="#C9A96E" opacity="0.6"/>
+            <!-- Gold collar -->
+            <path d="M 135 255 Q 170 275 205 255" stroke="#C9A96E" stroke-width="2" fill="none" opacity="0.6"/>
+            <!-- Ambient glow -->
+            <ellipse cx="170" cy="420" rx="120" ry="20" fill="rgba(201,169,110,0.06)"/>
+          </svg>
+        </div>
+        <div class="chef-portrait-badge">Executive Pastry Chef</div>
+        <div class="chef-corner-ornament"></div>
+        <div class="chef-corner-ornament-tr"></div>
+      </div>
+
+      <div class="chef-text-section">
+        <div class="chef-label reveal">Le Chef · شيفنا</div>
+        <h2 class="chef-name-ar reveal reveal-delay-1">الشيف نواف الرشيد</h2>
+        <span class="chef-name-en reveal reveal-delay-1">Chef Nawaf Al-Rasheed</span>
+        <p class="chef-bio-en reveal reveal-delay-2">"Every pastry is a poem — written in cream, butter, and time. I bring fifteen years of Parisian training to every creation we serve in our beloved Al-Madinah."</p>
+        <p class="chef-bio-ar reveal reveal-delay-3">تدرّب في باريس على يد أشهر معلمي الحلويات الفرنسية، وعاد إلى المملكة يحمل شغفه وإتقانه ليؤسّس فاميلي سويت. بعد أكثر من خمس عشرة سنة من الخبرة، لا يزال يؤمن بأن سرّ كل حلوى رائعة هو المحبة والتفاني.</p>
+        <div class="chef-credentials reveal reveal-delay-4">
+          <div class="chef-cred">
+            <div class="chef-cred-dot"></div>
+            <span class="chef-cred-text">Le Cordon Bleu · باريس</span>
+          </div>
+          <div class="chef-cred">
+            <div class="chef-cred-dot"></div>
+            <span class="chef-cred-text">١٥+ سنة خبرة</span>
+          </div>
+          <div class="chef-cred">
+            <div class="chef-cred-dot"></div>
+            <span class="chef-cred-text">جوائز دولية</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEASONAL / OCCASIONS ═══ -->
+<section id="seasonal">
+  <div class="seasonal-pattern"></div>
+  <div class="container seasonal-content">
+    <div class="seasonal-tag reveal">Collections Spéciales · المجموعات الخاصة</div>
+    <h2 class="seasonal-title-ar reveal reveal-delay-1">كل مناسبة تستحق لمسة فرنسية</h2>
+    <p class="seasonal-title-en reveal reveal-delay-1">Every Occasion Deserves a French Touch</p>
+    <p class="seasonal-desc reveal reveal-delay-2">نصنع لكم تجارب حلوى مخصصة لأجمل محطات الحياة — سواء كانت خطوبة، زفاف، عيد ميلاد، أو لحظة مميزة مع العائلة.</p>
+    <div class="seasonal-items reveal reveal-delay-2">
+      <div class="seasonal-item">
+        <div class="seasonal-item-dot"></div>
+        <span class="seasonal-item-name">حفلات الخطوبة</span>
+        <span class="seasonal-item-en">Engagement Parties</span>
+      </div>
+      <div class="seasonal-item">
+        <div class="seasonal-item-dot"></div>
+        <span class="seasonal-item-name">أعياد الميلاد</span>
+        <span class="seasonal-item-en">Birthdays</span>
+      </div>
+      <div class="seasonal-item">
+        <div class="seasonal-item-dot"></div>
+        <span class="seasonal-item-name">هدايا رمضان</span>
+        <span class="seasonal-item-en">Ramadan Gifts</span>
+      </div>
+      <div class="seasonal-item">
+        <div class="seasonal-item-dot"></div>
+        <span class="seasonal-item-name">مناسبات الشركات</span>
+        <span class="seasonal-item-en">Corporate Events</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-3">
+      <a href="#location" class="btn-light">
+        تواصل معنا لمناسبتك
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section id="newsletter">
+  <div class="newsletter-arabesque"></div>
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-icon reveal">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h2 class="newsletter-title-ar reveal reveal-delay-1">انضم إلى عالم فاميلي سويت</h2>
+      <p class="newsletter-title-en reveal reveal-delay-1">Join the Family Sweet World</p>
+      <p class="newsletter-desc reveal reveal-delay-2">اشترك لتكون أول من يعلم بمنتجاتنا الجديدة، عروضنا الحصرية، ومجموعاتنا الموسمية الفاخرة.</p>
+      <div class="newsletter-form reveal reveal-delay-3">
+        <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني · Your email address" dir="rtl">
+        <button class="newsletter-submit" onclick="this.textContent='✓ Done'">اشتراك</button>
+      </div>
+      <p class="newsletter-privacy reveal reveal-delay-4">We respect your privacy · نحترم خصوصيتك تماماً</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-en">Family Sweet</span>
+        <span class="footer-logo-ar">فاميلي سويت</span>
+        <p class="footer-desc">حلوياتنا الفرنسية الفاخرة تُعيد رسم لحظات العائلة بلمسة من الأناقة والمحبة. من قلب المدينة المنورة، إلى قلوبكم.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">sn</a>
+          <a href="#" class="social-link">wa</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">روابط</div>
+        <ul class="footer-links">
+          <li><a href="#products">منتجاتنا</a></li>
+          <li><a href="#about">قصتنا</a></li>
+          <li><a href="#experience">تجربتنا</a></li>
+          <li><a href="#location">موقعنا</a></li>
+          <li><a href="#testimonials">آراء العملاء</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Links</div>
+        <ul class="footer-links footer-links-en">
+          <li><a href="#products">Our Pastries</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#location">Find Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links footer-links-en" style="gap:1rem;">
+          <li><a href="tel:+9665XXXXXXXX" style="direction:ltr; display:block;">+966 5X XXX XXXX</a></li>
+          <li><a href="#">info@familysweet.sa</a></li>
+          <li style="margin-top:0.5rem;">
+            <div style="font-family:'Noto Naskh Arabic',serif; font-size:0.85rem; color:rgba(240,228,208,0.55); line-height:1.8; direction:rtl;">
+              المدينة المنورة<br>المملكة العربية السعودية
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <span class="footer-copy">© 2024 Family Sweet · All rights reserved</span>
+      </div>
+      <div class="footer-ksa-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Made with love in KSA</span>
+      </div>
+      <span class="footer-copy-ar">جميع الحقوق محفوظة · فاميلي سويت ٢٠٢٤</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLOAT ═══ -->
+<div id="whatsapp-float">
+  <div class="whatsapp-tooltip">تواصل معنا عبر واتساب</div>
+  <a href="https://wa.me/9665XXXXXXXX" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- ═══ SCROLL PROGRESS ═══ -->
+<div id="scroll-progress"></div>
+
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const progressBar = document.getElementById('scroll-progress');
+
+  window.addEventListener('scroll', () => {
+    // Navbar
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    // Progress bar
+    const scrollTop = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docH) * 100;
+    progressBar.style.width = pct + '%';
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Auto-show first hero elements
+  setTimeout(() => {
+    document.querySelectorAll('.hero-content .reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 200);
+
+  // Parallax subtle on hero
+  window.addEventListener('scroll', () => {
+    const hero = document.getElementById('hero');
+    const scrolled = window.scrollY;
+    if (hero) {
+      const decors = hero.querySelectorAll('.hero-decor');
+      decors.forEach((d, i) => {
+        d.style.transform = `translateY(${scrolled * (i === 0 ? 0.08 : 0.12)}px)`;
+      });
+    }
+  });
+
+  // Newsletter button animation
+  const submitBtn = document.querySelector('.newsletter-submit');
+  const inputField = document.querySelector('.newsletter-input');
+  if (submitBtn && inputField) {
+    submitBtn.addEventListener('click', function() {
+      if (inputField.value.includes('@')) {
+        this.textContent = '✓ تم!';
+        this.style.background = 'linear-gradient(135deg, #4CAF50, #388E3C)';
+        setTimeout(() => {
+          this.textContent = 'اشتراك';
+          this.style.background = '';
+          inputField.value = '';
+        }, 3000);
+      } else {
+        inputField.style.outline = '2px solid #E85050';
+        setTimeout(() => { inputField.style.outline = ''; }, 1500);
+      }
+    });
+  }
+</script>
+</body>
+</html>
+
